@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                mvn clean package crx:install
+                    mvn clean package crx:install -Dinstance.url=http://localhost:5000 -Dinstance.username=admin -Dinstance.password=admin
             }
         }
         stage('second test') { 
