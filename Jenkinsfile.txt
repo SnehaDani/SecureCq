@@ -1,0 +1,20 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                mvn clean package crx:install
+            }
+        }
+        stage('second test') { 
+            steps {
+                 mvn clean package -Pcli
+            }
+        }
+        stage('Deploy') { 
+            steps {
+               java -jar secure-aem-1.3.3-SNAPSHOT.jar -a http://localhost:5000 -aCredentials admin:admin
+            }
+        }
+    }
+}
