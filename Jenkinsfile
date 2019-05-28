@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-            sh label: '', script: ' java -jar target\secure-aem-1.3.3-SNAPSHOT.jar -a http://localhost:5000 -aCredentials admin:admin'
+            sh label: '', script: ' java -jar target/secure-aem-1.3.3-SNAPSHOT.jar -a http://localhost:5000 -aCredentials admin:admin'
        
              
             }
